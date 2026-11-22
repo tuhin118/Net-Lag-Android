@@ -14,7 +14,7 @@ source.dir = .
 # (list) Source files to include (let empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas
 
-# (str) Application versioning (method 1)
+# (str) Application versioning
 version = 1.0
 
 # (list) Application requirements
@@ -27,7 +27,7 @@ orientation = portrait
 fullscreen = 0
 
 # (list) Permissions
-android.permissions = INTERNET, ACCESS_NETWORK_STATE
+android.permissions = INTERNET, ACCESS_NETWORK_STATE, ACCESS_WIFI_STATE, CHANGE_WIFI_STATE, WAKE_LOCK, FOREGROUND_SERVICE, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE
 
 # (int) Target Android API, should be as high as possible.
 android.api = 33
