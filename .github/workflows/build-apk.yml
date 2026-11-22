@@ -13,12 +13,25 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4
 
+    - name: Cache Buildozer Global Directory
+      uses: actions/cache@v4
+      with:
+        path: .buildozer_global
+        key: buildozer-global-${{ hashFiles('buildozer.spec') }}
+
+    - name: Cache Buildozer Directory
+      uses: actions/cache@v4
+      with:
+        path: .buildozer
+        key: ${{ runner.os }}-buildozer-${{ hashFiles('buildozer.spec') }}
+
     - name: Build APK with Buildozer
       uses: ArtemSBulgakov/buildozer-action@v1
       id: buildozer
       with:
         command: buildozer android debug
         buildozer_version: stable
+        image: kivy/buildozer:stable  # <-- এই লাইনটি যোগ করা হয়েছে
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
