@@ -14,9 +14,8 @@ from kivy.clock import Clock
 from kivy.graphics import Color, Rectangle, Line
 from kivy.core.window import Window
 
-# অ্যান্ড্রয়েড পারমিশন এবং jnius
+# অ্যান্ড্রয়েড পারমিশন এবং jnius (android মডিউল ছাড়া)
 try:
-    from android.permissions import request_permissions, Permission
     from jnius import autoclass
     from android.runnable import run_on_ui_thread
     PythonActivity = autoclass('org.kivy.android.PythonActivity')
@@ -111,9 +110,6 @@ class MainLayout(BoxLayout):
         self.orientation = 'vertical'
         self.padding = 15
         self.spacing = 10
-        
-        if IS_ANDROID:
-            request_permissions([Permission.INTERNET, Permission.ACCESS_NETWORK_STATE, Permission.WAKE_LOCK, Permission.FOREGROUND_SERVICE])
 
         self.target_ip = self.get_local_ip()
         self.threads = 100
