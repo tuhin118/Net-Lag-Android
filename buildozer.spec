@@ -5,10 +5,10 @@ package.domain = com.tuhin
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 version = 1.0
-# jnius এবং kivy-এর সুনির্দিষ্ট ভার্সন লক করা হলো
-requirements = python3,kivy==2.2.1,cython==0.29.36,jnius
 
-# অপ্রয়োজনীয় 'android' এবং 'pillow' বাদ দেওয়া হলো
+# jnius এর কম্প্যাটিবল ভার্সন এবং kivy লক করা হলো
+requirements = python3,kivy==2.2.1,cython==0.29.36,jnius>=1.4.0
+
 orientation = portrait
 fullscreen = 0
 
@@ -17,8 +17,8 @@ android.permissions = INTERNET, ACCESS_NETWORK_STATE, ACCESS_WIFI_STATE, CHANGE_
 android.api = 33
 android.minapi = 21
 
-# NDK 25b এর বদলে 23b ব্যবহার করা হলো (অনেক বেশি স্ট্যাবল)
-android.ndk = 23b 
+# NDK 25b এবং ndk_api 24 - এটাই বর্তমানে সবচেয়ে স্ট্যাবল কম্বিনেশন
+android.ndk = 25b
 android.ndk_api = 24 
 android.archs = arm64-v8a
 android.accept_sdk_license = True
