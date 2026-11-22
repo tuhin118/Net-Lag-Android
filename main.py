@@ -14,10 +14,9 @@ from kivy.clock import Clock
 from kivy.graphics import Color, Rectangle, Line
 from kivy.core.window import Window
 
-# অ্যান্ড্রয়েড পারমিশন এবং jnius (android মডিউল ছাড়া)
+# jnius ইমপোর্ট (android মডিউল ছাড়া)
 try:
     from jnius import autoclass
-    from android.runnable import run_on_ui_thread
     PythonActivity = autoclass('org.kivy.android.PythonActivity')
     activity = PythonActivity.mActivity
     WindowManager = autoclass('android.view.WindowManager')
@@ -91,6 +90,7 @@ class NetLagEngine:
     def keep_screen_on(self, enable):
         if not IS_ANDROID: return
         try:
+            from android.runnable import run_on_ui_thread
             if enable:
                 @run_on_ui_thread
                 def keep_on():
