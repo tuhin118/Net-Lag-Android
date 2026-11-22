@@ -8,7 +8,7 @@ package.domain = com.tuhin
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 
-version = 1.0
+version = 1.1
 
 requirements = python3,kivy==2.2.1
 
@@ -27,3 +27,8 @@ android.archs = arm64-v8a
 
 android.accept_sdk_license = True
 android.allow_backup = True
+
+[buildozer]
+
+log_level = 2
+warn_on_root = 1
